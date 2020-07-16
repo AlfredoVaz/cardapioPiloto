@@ -24,8 +24,57 @@
             margin: 10px 0px;
         }
 
+        body {
+            overflow: hidden; 
+        }
+        
+        /* ini: Preloader */
+        
+        #preloader {
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:999; /* z-index para jogar para frente e sobrepor tudo */
+        }
+        #preloader .inner {
+            position: absolute;
+            top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
+            left: 50%;
+            transform: translate(-50%, -50%);  
+        }
+
+        #imagemLoading{
+            animation-duration: 3s;
+            animation-name: loading-animation;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes loading-animation {
+            from {
+                width: 100%;
+                height: 100%;
+            }
+
+            to {
+                width: 50%;
+                height: 50%;
+            }
+        }
+        /* end: Preloader */
+
     </style>
     <body style="background-color: rgb(64, 64, 64); display: block;">
+        <!-- início do preloader -->
+        <div id="preloader">
+            <div class="inner">
+                <img id="imagemLoading" src="./Otimizador/1-min.png" alt="">
+            </div>
+        </div>
+        <!-- fim do preloader --> 
+
         <div class="imagens centralizar margemImagens area">
             <img src="./Otimizador/3-min.png" alt="">
             <img src="./Otimizador/4-min.png" alt="">
@@ -35,4 +84,11 @@
             <img src="./Otimizador/11-min.png" alt="">
         </div>
     </body>
+    <script>
+        $(window).on('load', function () {
+            $('#preloader .inner').fadeOut();
+            $('#preloader').delay(350).fadeOut('slow'); 
+            $('body').delay(350).css({'overflow': 'visible'});
+        })
+    </script>
 </html>
