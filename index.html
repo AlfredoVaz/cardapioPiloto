@@ -24,36 +24,15 @@
             margin: 10px 0px;
         }
 
-
     </style>
     <body style="background-color: rgb(64, 64, 64); display: block;">
         <div class="imagens centralizar margemImagens area">
-            <img src="/Otimizador/3-min.png" alt="">
+            <img src="./Otimizador/3-min.png" alt="">
+            <img src="./Otimizador/4-min.png" alt="">
+            <img src="./Otimizador/5-min.png" alt="">
+            <img src="./Otimizador/7-min.png" alt="">
+            <img src="./Otimizador/8-min.png" alt="">
+            <img src="./Otimizador/11-min.png" alt="">
         </div>
     </body>
-    <script>
-        $(document).ready(function(){
-            var loading = false;
-            $(document).on("scroll", function(){
-                if(isOnScreen($(".area"))){
-                    $.get({
-                        url: "/Otimizador/"
-                    }).done(function(res){
-                        $(".area").append(res);
-                    });
-                }
-            });
-
-            function isOnScreen(element){
-                var win = $(window);
-                var screenTop = win.scrollTop();
-                var screenBottom = screenTop + win.height();
-        
-                var elementTop = element.offset().top;
-                var elementBottom = elementTop + element.height();
-        
-                return elementBottom > screenTop && elementTop < screenBottom;        
-            }
-        });
-    </script>
 </html>
