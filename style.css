@@ -15,6 +15,7 @@
 
 body {
     overflow: hidden; 
+    height: 100%;
 }
 
 /* ini: Preloader */
